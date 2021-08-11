@@ -10,7 +10,6 @@ if __name__ == '__main__':
                   2017, "Nintendo", "E")
     game_D = Game("Final Fantasy XV", 2016, "Square Enix", "T")
     game_E = Game("Marvel's Spider-Man", 2018, "Insomniac Games", "T")
-
     game_list = [game_A, game_B, game_C, game_D, game_E]
 
     result, msj = get_game_name(game_list, "Devil")

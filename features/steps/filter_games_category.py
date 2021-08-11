@@ -9,7 +9,7 @@ def before_scenario(context, scenario):
     context = {}
 
 
-@given("a set of games")
+@given("a set of games1")
 def step_impl(context):
     game_list = []
 
@@ -24,26 +24,27 @@ def step_impl(context):
     context.games = game_list
 
 
-@given('the user enters the name: {name}')
-def step_impl(context, name):
-    context.name = name
+@given('the user selects one or more ratings1: {rating}')
+def step_impl(context, rating):
+    context.rating = rating
 
 
-@when("the user search games by {criteria}")
+@when("the user search games by1 {criteria}")
 def step_impl(context, criteria):
-    if(criteria == 'name'):
-        result, message = get_game_name(context.games, context.name)
+    if(criteria == 'ratings'):
+        result, message, error = get_game_rating(context.games, context.rating)
         print(result)
         context.result = result
         context.message = message
 
 
-@then("{total} games will match")
+@then("{total} games were found")
 def step_impl(context, total):
+    print("totalaaaaaaaaaaaaaaaaaaaaa", total)
     assert len(context.result) == int(total)
 
 
-@then("the names of these games are")
+@then("the names of these games are1")
 def step_impl(context):
     expected_games = True
     result_games = []
@@ -56,8 +57,9 @@ def step_impl(context):
     assert expected_games is True
 
 
-@then("the following message is displayed: {message}")
+@then("the following message is displayed1: {message}")
 def step_impl(context, message):
     print(message)
     print(context.message)
     assert context.message == message
+    context = {}
