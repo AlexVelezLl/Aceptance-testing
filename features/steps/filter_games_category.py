@@ -40,7 +40,6 @@ def step_impl(context, criteria):
 
 @then("{total} games were found")
 def step_impl(context, total):
-    print("totalaaaaaaaaaaaaaaaaaaaaa", total)
     assert len(context.result) == int(total)
 
 
